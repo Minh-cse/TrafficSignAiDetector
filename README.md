@@ -19,52 +19,22 @@ Getting started
 
 These instructions assume you have Python 3.8+ and Node.js (16+) installed. (python 3.10 is recommended)
 
-1) Install Python dependencies
+1) Install npm
 
 ```bash
-cd Traffic-sign-AI
-python -m pip install -r requirements.txt
+cd Traffic-sign-AI/Frontend/Traffic-sign-recognition
+npm install
 ```
-
-2) (Optional) Create a virtual environment
+2) Run demo code (change directory to TrafficSignAiDetector)
 
 ```bash
-python -m venv .venv
-.\\.venv\\Scripts\\activate
-python -m pip install -r requirements.txt
+cd ..
+cd ..
+python demo.py
 ```
-
-3) Backend: run the FastAPI (Uvicorn) server
-
-The backend app is in `backend/app.py`. You can run it using the bundled `uvicorn` CLI or run the file directly which will start uvicorn as well.
-
-Install `uvicorn` if not present:
-
-```bash
-python -m pip install uvicorn[standard]
-```
-
-Run with the CLI (recommended during development):
-
-```bash
-uvicorn backend.app:app --reload --host 0.0.0.0 --port 8000
-```
-
-Or run the module directly (the file includes a uvicorn entrypoint):
-
-```bash
-python backend/app.py
-```
+The link to be clicked on should be **http://localhost:5173/**
 
 By default the backend will load a model from `backend/best.pt` if present. You can replace that with any of the provided weights (`yolov8n.pt`, `yolov8s.pt`, `yolo11n.pt`) or point the app to another weights file.
-
-4) Frontend: run the Vite dev server
-
-```bash
-cd Frontend/Traffic-sign-recognition
-npm install
-npm run dev
-```
 
 The frontend expects the backend API to be available (see `backend/app.py`). Update the API base URL in the frontend if your backend runs on a different host/port.
 
